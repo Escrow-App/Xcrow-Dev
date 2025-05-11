@@ -1,0 +1,68 @@
+---
+title: API Basics
+---
+
+🔍 The Escrow API is structured around RESTful principles. It uses standard HTTP response codes, authentication via API keys, and JSON-encoded request and response bodies.
+
+### Base URL
+
+```
+https://dev.api.usexcrow.com/v1/
+```
+
+### Authentication
+
+All requests must include a valid API key in the header.
+
+**Example:**
+
+```http
+Authorization: Bearer YOUR_API_KEY
+```
+
+The API provides endpoints to create wallets, handle funding and withdrawals, and manage multi-party escrow contracts.
+It ensures secure payment flows by allowing users to initiate, fund, hold, and release transactions through the escrow vault.
+
+---
+
+## 📦 Contract Types
+
+### 1. Classic Contracts
+
+**Use Case:** Peer-to-peer transactions, marketplace purchases, service agreements.
+
+In a Classic Contract:
+
+- Funds are held in escrow after both parties agree.
+- The sender deposits the funds.
+- The receiver delivers the agreed service/product.
+- Upon confirmation, funds are released.
+- Optional dispute resolution is available.
+
+### 2. Wager Contracts
+
+**Use Case:** Competitions, predictions, gamified applications.
+
+In a Wager Contract:
+
+- Two or more users stake an amount on a conditional outcome.
+- A condition resolver (either automated or admin-defined) determines the winner.
+- Funds are automatically distributed based on outcome.
+- Useful in gaming, sports betting, or competitive freelance projects.
+
+## 🛠 Common Workflows
+
+### Classic Transaction Flow
+
+1. Client A creates a contract with Client B as the counterparty.
+2. Client A funds the contract.
+3. Client B delivers the product or service.
+4. Client A confirms delivery.
+5. Funds are released to Client B.
+
+### Wager Contract Flow
+
+1. User A creates a wager with defined rules and conditions.
+2. User B accepts and stakes matching funds.
+3. An outcome is submitted either manually or automatically.
+4. The system validates the result and releases funds to the winner(s).
