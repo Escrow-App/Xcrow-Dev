@@ -4,16 +4,16 @@ title: Errors
 
 🚨 The API uses standard HTTP status codes to indicate success or failure of requests.
 
-| Status Code                 | Meaning            | Description                                                                     |
-| --------------------------- | ------------------ | ------------------------------------------------------------------------------- |
-| `200 OK`                    | Success            | Request completed successfully.                                                 |
-| `201 Created`               | Resource Created   | Contract or transaction successfully created.                                   |
-| `400 Bad Request`           | Invalid Request    | Input data is malformed or missing required fields.                             |
-| `401 Unauthorized`          | Auth Failed        | Invalid or missing API key.                                                     |
-| `403 Forbidden`             | Access Denied      | You don’t have permission to perform this action.                               |
-| `404 Not Found`             | Resource Not Found | Contract or endpoint does not exist.                                            |
-| `422 Unprocessable Entity`  | Logic Error        | Data is valid but the operation cannot proceed (e.g., contract already funded). |
-| `500 Internal Server Error` | Server Issue       | An unexpected error occurred on the server.                                     |
+| Status Code                                     | Meaning            | Description                                                                                                                           |
+| ----------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `200 OK`                                        | Success            | Request completed successfully.                                                                                                       |
+| `201 Created`                                   | Resource Created   | Contract or transaction successfully created.                                                                                         |
+| `400 Bad Request`                               | Invalid Request    | Input data is malformed or missing required fields.                                                                                   |
+| `401 Unauthorized`                              | Auth Failed        | Invalid or missing API key.                                                                                                           |
+| `403 Forbidden`                                 | Access Denied      | You don’t have permission to perform this action.                                                                                     |
+| `404 Not Found`                                 | Resource Not Found | Contract or endpoint does not exist.                                                                                                  |
+| `422 Unprocessable Entity`                      | Logic Error        | Data is valid but the operation cannot proceed (e.g., contract already funded).                                                       |
+| `500, 501, 502, 503, 504 Internal Server Error` | Server Issue       | The request could not be fulfilled due to an error from Xcrow. This shouldn't happen, so please report as soon as you encounter this. |
 
 **Error Response Format:**
 
