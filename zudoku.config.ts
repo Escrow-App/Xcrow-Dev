@@ -10,6 +10,25 @@ const config: ZudokuConfig = {
       },
     },
   },
+  metadata: {
+    title: 'Xcrow - Developer Documentation',
+    description:
+      'This API enables developers to integrate secure and reliable escrow services into their platforms',
+    logo: 'https://usexcrow.com/assets/img/white_logo.svg',
+    favicon: 'https://usexcrow.com/assets/img/white_logo.svg',
+    referrer: 'no-referrer',
+    keywords: [
+      'escrow',
+      'developer',
+      'nigeria',
+      'xcrow',
+      'usexcrow',
+      'best escrow',
+      'middleman',
+      'secure',
+      'SEO',
+    ],
+  },
   topNavigation: [
     { id: 'docs', label: 'Documentation' },
     { id: 'api', label: 'API Reference' },

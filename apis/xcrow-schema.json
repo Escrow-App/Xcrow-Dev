@@ -41,6 +41,10 @@
     {
       "name": "company",
       "description": "Company management"
+    },
+    {
+      "name": "dispute",
+      "description": "Dispute system management"
     }
   ],
   "paths": {
@@ -556,6 +560,7 @@
       "get": {
         "operationId": "escrow_disputes_list",
         "description": "",
+        "summary": "List current disputes",
         "parameters": [],
         "responses": {
           "200": {
@@ -568,10 +573,11 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "post": {
         "operationId": "escrow_disputes_create",
+        "summary": "Create a new dispute",
         "description": "",
         "parameters": [
           {
@@ -591,13 +597,14 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "parameters": []
     },
     "/escrow/disputes/{dispute_pk}/evidence/": {
       "get": {
         "operationId": "escrow_disputes_evidence_list",
+        "summary": "List all evidence for a specific dispute",
         "description": "",
         "parameters": [],
         "responses": {
@@ -611,11 +618,12 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "post": {
         "operationId": "escrow_disputes_evidence_create",
         "description": "",
+        "summary": "Create new evidence for a specific dispute",
         "parameters": [
           {
             "name": "data",
@@ -634,7 +642,7 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "parameters": [
         {
@@ -648,6 +656,7 @@
     "/escrow/disputes/{dispute_pk}/evidence/{id}/": {
       "get": {
         "operationId": "escrow_disputes_evidence_read",
+        "summary": "Get specific evidence for a dispute",
         "description": "",
         "parameters": [],
         "responses": {
@@ -658,11 +667,12 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "put": {
         "operationId": "escrow_disputes_evidence_update",
         "description": "",
+        "summary": "Update specific evidence for a dispute",
         "parameters": [
           {
             "name": "data",
@@ -681,11 +691,12 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "patch": {
         "operationId": "escrow_disputes_evidence_partial_update",
         "description": "",
+        "summary": "Partially update specific evidence for a dispute",
         "parameters": [
           {
             "name": "data",
@@ -704,19 +715,9 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
-      "delete": {
-        "operationId": "escrow_disputes_evidence_delete",
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "tags": ["escrow"]
-      },
+
       "parameters": [
         {
           "name": "dispute_pk",
@@ -736,6 +737,7 @@
       "get": {
         "operationId": "escrow_disputes_messages_list",
         "description": "",
+        "summary": "Dispute chats list",
         "parameters": [],
         "responses": {
           "200": {
@@ -748,10 +750,11 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "post": {
         "operationId": "escrow_disputes_messages_create",
+        "summary": "Send a new message for a specific dispute",
         "description": "",
         "parameters": [
           {
@@ -771,98 +774,11 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "parameters": [
         {
           "name": "dispute_pk",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        }
-      ]
-    },
-    "/escrow/disputes/{dispute_pk}/messages/{id}/": {
-      "get": {
-        "operationId": "escrow_disputes_messages_read",
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/DisputeMessage"
-            }
-          }
-        },
-        "tags": ["escrow"]
-      },
-      "put": {
-        "operationId": "escrow_disputes_messages_update",
-        "description": "",
-        "parameters": [
-          {
-            "name": "data",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DisputeMessage"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/DisputeMessage"
-            }
-          }
-        },
-        "tags": ["escrow"]
-      },
-      "patch": {
-        "operationId": "escrow_disputes_messages_partial_update",
-        "description": "",
-        "parameters": [
-          {
-            "name": "data",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DisputeMessage"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/DisputeMessage"
-            }
-          }
-        },
-        "tags": ["escrow"]
-      },
-      "delete": {
-        "operationId": "escrow_disputes_messages_delete",
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "tags": ["escrow"]
-      },
-      "parameters": [
-        {
-          "name": "dispute_pk",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        },
-        {
-          "name": "id",
           "in": "path",
           "required": true,
           "type": "string"
@@ -873,6 +789,7 @@
       "post": {
         "operationId": "escrow_disputes_messages_add_images",
         "description": "",
+        "summary": "Upload images to a message",
         "parameters": [
           {
             "name": "data",
@@ -891,7 +808,7 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "parameters": [
         {
@@ -900,87 +817,6 @@
           "required": true,
           "type": "string"
         },
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        }
-      ]
-    },
-    "/escrow/disputes/{id}/": {
-      "get": {
-        "operationId": "escrow_disputes_read",
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/Dispute"
-            }
-          }
-        },
-        "tags": ["escrow"]
-      },
-      "put": {
-        "operationId": "escrow_disputes_update",
-        "description": "",
-        "parameters": [
-          {
-            "name": "data",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Dispute"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/Dispute"
-            }
-          }
-        },
-        "tags": ["escrow"]
-      },
-      "patch": {
-        "operationId": "escrow_disputes_partial_update",
-        "description": "",
-        "parameters": [
-          {
-            "name": "data",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Dispute"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/Dispute"
-            }
-          }
-        },
-        "tags": ["escrow"]
-      },
-      "delete": {
-        "operationId": "escrow_disputes_delete",
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "tags": ["escrow"]
-      },
-      "parameters": [
         {
           "name": "id",
           "in": "path",
@@ -993,6 +829,7 @@
       "post": {
         "operationId": "escrow_disputes_resolve",
         "description": "",
+        "summary": "Resolve a dispute",
         "parameters": [
           {
             "name": "data",
@@ -1011,7 +848,7 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "parameters": [
         {
@@ -1025,6 +862,7 @@
     "/escrow/disputes/{id}/send_message/": {
       "post": {
         "operationId": "escrow_disputes_send_message",
+        "summary": "Send a message for a dispute",
         "description": "",
         "parameters": [
           {
@@ -1044,7 +882,7 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "parameters": [
         {
@@ -1059,6 +897,7 @@
       "post": {
         "operationId": "escrow_disputes_submit_evidence",
         "description": "",
+        "summary": "Submit evidence for a dispute",
         "parameters": [
           {
             "name": "data",
@@ -1077,7 +916,7 @@
             }
           }
         },
-        "tags": ["escrow"]
+        "tags": ["dispute"]
       },
       "parameters": [
         {
